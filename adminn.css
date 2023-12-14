@@ -36,6 +36,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 
 .admin_item img {
@@ -97,6 +98,8 @@
     align-items: center;
     padding: 10px 20px;
     gap: 15px;
+    text-decoration: none;
+    color: black;
 }
 
 .fi_tab_itemtext {
@@ -116,9 +119,76 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: #6DB9EF;
+    background-color:#6DB9EF;
     color: white;
     padding: 10px;
     position: absolute;
     bottom: 0;
+}
+
+
+
+
+
+.text{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 15px;
+}
+
+.text h2{
+background-color: #3593D8;
+width: 100%;
+padding: 10px 30px;
+display: flex;
+align-items: center;
+color: white;
+font-weight: bold;
+}
+
+.thembm {
+background: #F5F5F5;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+border: 2px solid #F5F5F5;
+width: 400px;
+margin: 70px auto;
+gap: 20px;
+padding: 50px;
+border-radius: 5px;
+}
+
+
+.them {
+width: 300px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+color:#3593D8;
+font-weight: 700;
+}
+
+input[type="text" i] {
+height: 35px;
+border: 1px solid #3593D8;
+border-radius: 3px;
+}
+
+.luubm{
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 10px 20px;
+}
+
+.luubm input{
+padding: 5px 10px;
+color: white;
+background-color: #3593D8;
+border: 1px solid white;
+font-weight: bold;
+border-radius: 3px;
 }

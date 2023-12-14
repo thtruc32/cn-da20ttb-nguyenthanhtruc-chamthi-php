@@ -1,6 +1,10 @@
 <?php
-session_start();
-if (!isset($_SESSION["admin"])) {
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION["giangvien"])) {
     echo "<script language=javascript>
     alert('Bạn không có quyền trên trang này!');
     window.location='dangnhap.php';
@@ -10,99 +14,55 @@ if (!isset($_SESSION["admin"])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="adminn.css" />
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="gv.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
-        
-        .quanly{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+            .mySlides {
+                display:none;
+            }
 
-        h2{
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            gap: 15px;
-        }
-        .h2text h2{
-            
-            color:white;
-            background-color: #3593D8;
-            margin-top: 40px;
-            padding: 10px 30px;
-        
-        }
+            .w3-display-container{
+                height: 400px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-top: 10px;
+            }
+</style>
+</head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300&family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-        .btn{
-            display: flex;
-            margin-top: 8%;
-            margin-left: 60px;
-            gap: 10px;
-            align-items: left;
-        }
+* {
+    font-family: Montserrat;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .btn button{
-            display: flex;
-            border: 1px solid #3593D8;
-            padding: 10px 10px;
-            background-color: white;
-            color: #3593D8;
-            font-weight: bold;
-            border-radius: 5px;
-            gap:5px;
-        }
-
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 90%;
-            align-items: center;
-            border: 2px solid #dddddd;
-            justify-content: center;
-            margin-top: 30px;
-
-        }
-
-        td,
-        th {
-            border: 2px solid #dddddd;
-            text-align: center;
-            padding: 8px;
-        }
-
-        th{
-            color:  white;
-            background-color: #3593D8;
-        }
-
-        td button{
-            background-color: #dddddd;
-            padding: 5px 5px;
-            color:#3593D8;
-            border: 1px solid #dddddd;
-            font-weight: bold;
-            border-radius: 5px;
-        }
 
     </style>
-</head>
-
 <body>
-    <div class="admin_layout">
+<div class="admin_layout">
         <div class="admin_layout_left">
             <div class="admin_item">
-                <img src="../hinh/TVU-SET.png" />
+                <img src="./hinh/TVU-SET.png" />
                 <h2>QUẢN LÝ<br>CÔNG TÁC CHẤM THI</h2>
                 <h3>KHOA KỸ THUẬT & CÔNG NGHỆ</h3>
             </div>
             <div class="admin_tab">
+
+                <a href="trangchu.php" class="tab_item">
+                    <ion-icon name="home"></ion-icon>
+                    <span>Trang chủ</span>
+                </a>
+
                 <a href="bomon.php" class="tab_item">
                     <ion-icon name="bookmark"></ion-icon>
                     <span>Quản lý bộ môn</span>
@@ -147,16 +107,16 @@ if (!isset($_SESSION["admin"])) {
             <div class="fi_tab">
                 <div class="fi_tab_item_info">
                     <div class="fi_tab_itemtext">
-                        <span>Nguyễn Thanh Trúc</span>
+                    <span><?php echo $giangvien_login["TenGV"]; ?></span>
                     </div>
                     <div class="fi_tab_itemadimin">
                         <span>Admin</span>
                     </div>
                 </div>
-                <div class="fi_tab_logout">
-                    <ion-icon name="log-out"></ion-icon>
-                    <span>Đăng xuất</span>
-                </div>
+                <a href="logingv.php" class="fi_tab_logout">
+                    <ion-icon name="log-in"></ion-icon>
+                    <span>Đăng nhập</span>
+                </a>
             </div>
         </div>
         <div class="admin_layout_right">

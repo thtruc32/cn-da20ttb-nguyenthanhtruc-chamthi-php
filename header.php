@@ -1,83 +1,120 @@
+<?php
+session_start();
+if (!isset($_SESSION["admin"])) {
+    echo "<script language=javascript>
+    alert('Bạn không có quyền trên trang này!');
+    window.location='dangnhap.php';
+    </script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="adminn.css" />
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <link rel="stylesheet" href="gv.css">
-</head>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300&family=Quicksand:wght@300;400;500;600;700&display=swap');
+        *{
+            text-decoration: none;
+        }
+        .quanly{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-* {
-    font-family: Montserrat;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        h2{
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            gap: 15px;
+        }
 
-.slide_frame{
-    display: flex;
-    height: 300px;
-    width: 100%;
-    margin-left: 100%;
-}
+        .h2text h2{
+            color:white;
+            background-color: #3593D8;
+            margin-top: 40px;
+            padding: 10px 30px;
+        
+        }
 
-.img-container{
-    display: flex;
-    height: 300px;
-    width: 100%;
-    position: relative;
-    float: left;
-}
+        .btn{
+            display: flex;
+            margin-top: 8%;
+            margin-left: 60px;
+            gap: 10px;
+            align-items: left;
+        }
 
-.slide_img{
-    display: flex;
-    width: 100%;
-    height: 300px;
-    margin: 0 0 0 -2400px;
-    position: relative;
-    -webkit-animation-name: slide_animation ;
-    -webkit-animation-duration: 33s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
-    -webkit-animation-play-state: running;
-}
-@-webkit-keyframes slide_animation{
-    0% {left: 0px;}
-    10% {left: 0px;}
-    20% {left: 1200px;}
-    30% {left: 1200px;}
-    40% {left: 2400px;}
-    50% {left: 2400px;}
-    60% {left: 1200px;}
-    70% {left: 1200px;}
-    80% {left: 0px;}
-    90% {left: 0px;}
-    100% {left: 0px;}
-}
-/* css hình ảnh 
-.top_img{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-}
+        .btn button a{
+            color:#3593D8;
+            text-decoration: none;
+        }
 
-.top_img img{
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-*/
+        .btn button{
+            display: flex;
+            border: 1px solid #3593D8;
+            padding: 10px 10px;
+            background-color: white;
+            color: #3593D8;
+            font-weight: bold;
+            border-radius: 5px;
+            gap:5px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 95%;
+            align-items: center;
+            border: 2px solid #dddddd;
+            justify-content: center;
+            margin-top: 30px;
+
+        }
+
+        td,
+        th {
+            border: 2px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        th{
+            color:  white;
+            background-color: #3593D8;
+        }
+
+        td button{
+            background-color: #dddddd;
+            padding: 5px 5px;
+            color:#3593D8;
+            border: 1px solid #dddddd;
+            font-weight: bold;
+            border-radius: 5px;
+        }
 
     </style>
+</head>
+
 <body>
-<div class="admin_layout">
+<?php
+    include("ketnoi.php");
+    $sql = "select * from admin ";
+    $userlogin = $_SESSION["admin"];
+    $sql2 = "select * from admin where emailad='" . $userlogin . "'";
+    $kq = mysqli_query($conn, $sql) or die("Không thể xuất thông tin người dùng " . mysqli_error());
+    $kq2 = mysqli_query($conn, $sql2) or die("Không thể xuất thông tin người dùng " . mysqli_error());
+    $admins = mysqli_fetch_array($kq); //lấy list các admin
+    $admin_login =  mysqli_fetch_array($kq2); //lấy 1 trong list admin
+
+    ?>
+
+    <div class="admin_layout">
         <div class="admin_layout_left">
             <div class="admin_item">
                 <img src="./hinh/TVU-SET.png" />
@@ -85,12 +122,6 @@
                 <h3>KHOA KỸ THUẬT & CÔNG NGHỆ</h3>
             </div>
             <div class="admin_tab">
-
-                <a href="trangchu.php" class="tab_item">
-                    <ion-icon name="home"></ion-icon>
-                    <span>Trang chủ</span>
-                </a>
-
                 <a href="bomon.php" class="tab_item">
                     <ion-icon name="bookmark"></ion-icon>
                     <span>Quản lý bộ môn</span>
@@ -135,16 +166,16 @@
             <div class="fi_tab">
                 <div class="fi_tab_item_info">
                     <div class="fi_tab_itemtext">
-                        <span>Nguyễn Thanh Trúc</span>
+                        <span><?php echo $admin_login["tenad"]; ?></span>
                     </div>
                     <div class="fi_tab_itemadimin">
                         <span>Admin</span>
                     </div>
                 </div>
-                <div class="fi_tab_logout">
-                    <ion-icon name="log-in"></ion-icon>
-                    <span>Đăng nhập</span>
-                </div>
+                <a href="logout.php" class="fi_tab_logout">
+                    <ion-icon name="log-out"></ion-icon>
+                    <span>Đăng xuất</span>
+                </a>
             </div>
         </div>
         <div class="admin_layout_right">
