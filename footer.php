@@ -1,5 +1,5 @@
 <div class="chantrang">
-                <span>mô si mô si</span>
+                <span>Design by Nguyễn Thanh Trúc</span>
 
             </div>
         </div>

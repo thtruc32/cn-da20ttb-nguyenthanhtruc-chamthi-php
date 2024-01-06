@@ -21,10 +21,10 @@
     
     $kq = mysqli_query($conn, $sql) or die("Không thể mở bảng admin".mysqli_error()); // thực thi câu lệnh SQL
     if (mysqli_fetch_array($kq)) {
-        $_SESSION['giangvien'] = $user;
+        $_SESSION["giangvien"] = $user;
         echo ("<script language=javascript>
                 // alert('Đăng nhập thành công');
-                window.location='index.php';
+                window.location='trangchugv.php';
                 </script> ");
     } else {
         $sql2 = "select * from admin where emailad='" .$user. "' and matkhauad ='" .$pass. "'";

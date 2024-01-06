@@ -1,6 +1,5 @@
 <?php
-include("header.php");
-
+include("headerad.php");
 include("ketnoi.php");
 
 $usern=$_REQUEST["user"]; //Nhận giá trị user từ link sửa của quantri.php

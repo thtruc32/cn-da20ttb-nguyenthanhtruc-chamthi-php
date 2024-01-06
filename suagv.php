@@ -1,5 +1,5 @@
 <?php
-include("header.php");
+include("headerad.php");
 
 include("ketnoi.php");
 
@@ -125,14 +125,14 @@ border-radius: 3px;
             </div>
             <div class="them1a">
                 <span>Bộ môn</span>
-                <select name="bomon">
+                <select name="MaBM">
                         <?php
-                $sql = "SELECT MaBM, TenBM FROM bomon";
-                $kq = mysqli_query($conn, $sql) or die("Không thể thêm bộ môn: " . mysqli_error($conn));
-                while ($row = mysqli_fetch_assoc($kq)) {
-                    $MaBM = $row['MaBM'];
-                    $TenBM = $row['TenBM'];
-                    $selected = ($MaBM == $row["MaBM"]) ? "selected" : "";
+                $sq2 = "SELECT MaBM, TenBM FROM bomon";
+                $kq2 = mysqli_query($conn, $sq2) or die("Không thể thêm bộ môn: " . mysqli_error($conn));
+                while ($row2 = mysqli_fetch_assoc($kq2)) {
+                    $MaBM = $row2['MaBM'];
+                    $TenBM = $row2['TenBM'];
+                    $selected = ($MaBM == $row2["MaBM"]) ? "selected" : "";
                     echo "<option value=\"$MaBM\">$TenBM</option>";
                     }
                 ?>

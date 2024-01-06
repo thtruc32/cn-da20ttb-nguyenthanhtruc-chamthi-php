@@ -91,7 +91,7 @@ if (!isset($_SESSION["admin"])) {
 
         td button{
             background-color: #dddddd;
-            padding: 5px 5px;
+            padding: 2px 2px;
             color:#3593D8;
             border: 1px solid #dddddd;
             font-weight: bold;
@@ -150,6 +150,11 @@ if (!isset($_SESSION["admin"])) {
                 <a href="chamthi.php" class="tab_item">
                     <ion-icon name="pencil"></ion-icon>
                     <span>Quản lý chấm thi</span>
+                </a>
+
+                <a href="phancongcham.php" class="tab_item">
+                    <ion-icon name="pencil"></ion-icon>
+                    <span>Phân công chấm thi</span>
                 </a>
 
                 <a href="hocky.php" class="tab_item">

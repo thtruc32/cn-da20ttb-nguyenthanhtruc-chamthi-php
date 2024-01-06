@@ -8,10 +8,6 @@ if (!isset($_SESSION["admin"])) {
 }
 ?>
 
-<?php
-include("header.php");
-?>
-
 <?php include("ketnoi.php");
     $user_xoa=$_REQUEST["user"]; //Nhận giá trị user từ link xóa của quantri.php
     $sql="delete from lop where MaLop='".$user_xoa."'";
@@ -21,8 +17,4 @@ include("header.php");
     alert('Xóa lớp học thành công');
     window.location='lophoc.php';}
     </script> ");
-?>
-
-<?php
-include("footer.php");
 ?>

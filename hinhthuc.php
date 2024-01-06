@@ -1,5 +1,5 @@
 <?php
-include("header.php");
+include("headerad.php");
 ?>
             <div class="h2text">
             <h2>
@@ -30,6 +30,9 @@ include("header.php");
                         <th><input type="checkbox"/></th>
                         <th>Mã hình thức</th>
                         <th>Tên hình thức</th>
+                        <th>Hình thức</th>
+                        <th>Buổi</th>
+                        <th>Đơn giá</th>
                         <th>Tùy chọn</th>
                     </tr>
                     <?php
@@ -45,7 +48,9 @@ include("header.php");
                         echo "<td>" . $row["MaHT"] . "</td>";
                         $usern = $row["MaHT"];// Gán dữ liệu cột username vào biến $usern
                         echo "<td>" . $row["TenHT"] . "</td>";
-
+                        echo "<td>" . $row["Hthuc"] . "</td>";
+                        echo "<td>" . $row["Buoi"] . "</td>";
+                        echo "<td>" . $row["Gia"] . "</td>";
                         echo "<td>
                         <button>
                             <a href='suaht.php?user=$usern'>

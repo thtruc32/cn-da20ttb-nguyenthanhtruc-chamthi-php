@@ -1,5 +1,5 @@
 <?php
-include("header.php");
+include("headerad.php");
 ?>
 
 <style>
@@ -99,6 +99,7 @@ border-radius: 3px;
     width: 200px;
     height: 30px;
     border: 1px solid #3593D8;
+    border-radius: 3px;
     
 }
 
@@ -117,7 +118,7 @@ border-radius: 3px;
         <div class="them1">
             <div class="them1a">
                 <span>Mã giảng viên</span>
-                <input type="text" name="MaGV"/>
+                <input type="text" name="MaGV" readonly/>
             </div>
             <div class="them1a">
                 <span>Bộ môn</span>

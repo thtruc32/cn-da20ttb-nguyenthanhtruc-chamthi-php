@@ -1,5 +1,5 @@
 <?php
-include("header.php");
+include("headerad.php");
 ?>
             <div class="h2text">
             <h2>
@@ -46,8 +46,9 @@ include("header.php");
                                 echo "<td>" . $row["MaNK"] . "</td>";
                                 $usern = $row["MaNK"];// Gán dữ liệu cột username vào biến $usern
                                 echo "<td>" . $row["TenNK"] . "</td>";
-                                echo "<td>" . $row["TGbatdau"] . "</td>";
-                                echo "<td>" . $row["TGketthuc"] . "</td>";
+                                echo "<td>" . date('d/m/Y', strtotime($row["TGbatdau"])) . "</td>";
+                                echo "<td>" . date('d/m/Y', strtotime($row["TGketthuc"])) . "</td>";
+        
 
                                 echo "<td>
                                 <a href='suank.php?user=$usern'><button><ion-icon name='pencil'></ion-icon></button></a>

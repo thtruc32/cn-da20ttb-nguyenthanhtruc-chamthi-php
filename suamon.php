@@ -1,5 +1,5 @@
 <?php
-include("header.php");
+include("headerad.php");
 
 include("ketnoi.php");
 
@@ -22,7 +22,7 @@ $row = mysqli_fetch_array($kq);
     <div class="thembm">
         <div class="them">
             <span>Mã môn học</span>
-            <input type="text" readonly name="MaMH" value="<?php echo $row["MaMH"]; ?>"/>
+            <input type="text" name="MaMH" value="<?php echo $row["MaMH"]; ?>"/>
         </div>
 
         <div class="them">

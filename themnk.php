@@ -1,5 +1,5 @@
 <?php
-include("header.php")
+include("headerad.php")
 ?>
 
 <link rel="stylesheet" href="chinhsua.css" type="text/css"/>

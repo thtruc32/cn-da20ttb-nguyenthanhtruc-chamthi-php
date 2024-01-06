@@ -1,37 +1,134 @@
 <?php
-include("header.php")
+include("headerad.php");
 ?>
-
-<link rel="stylesheet" href="chinhsua.css" type="text/css"/>
+<!-- 
+<link rel="stylesheet" href="chinhsua.css" type="text/css"/> -->
 
 <form enctype="multipart/form-data" action="xulythemht.php" name="xlythemht" method="post">
+<style>
+    .khung {
+    background: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #F5F5F5;
+    width: 80%;
+    margin: 7rem auto;
+    gap: 20px;
+    padding: 50px;
+    border-radius: 5px;
+}
 
-    <div class="text">
+.them1 {
+
+flex: 1;
+display: flex;
+color:#3593D8;
+font-weight: 700;
+align-items: center;
+gap: 50px;
+}
+
+.them1a{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    align-items: flex-start;
+    gap: 5px;
+
+}
+
+.them2{
+
+flex: 1;
+display: flex;
+color:#3593D8;
+font-weight: 700;
+align-items: center;
+gap: 50px;
+}
+
+.them2a{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    align-items: flex-start;
+    gap: 5px;
+
+}
+
+input[type="text" i] {
+height: 30px;
+border: 1px solid #3593D8;
+border-radius: 3px;
+width: 200px;
+}
+
+.luubtn{
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 10px 20px;
+}
+
+.luubtn input{
+padding: 5px 10px;
+color: white;
+background-color: #3593D8;
+border: 1px solid white;
+font-weight: bold;
+border-radius: 3px;
+}
+
+.them1a select{
+    width: 200px;
+    height: 30px;
+    border: 1px solid #3593D8;
+    border-radius: 3px;
+    
+}
+
+</style>
+</style>
+<div class="text">
         <h2>
         <ion-icon name="add-circle"></ion-icon>
             THÊM HÌNH THỨC
         </h2>
     </div>
 
-    <div class="thembm">
-        <div class="them">
-            <span>Mã hình thức</span>
-            <input type="text" name="MaHT"/>
+    <div class="khung">
+        <div class="them1">
+            <div class="them1a">
+                <span>Mã hình thức</span>
+                <input type="text" name="MaHT" readonly/>
+            </div>
+            <div class="them1a">
+                <span>Tên hình thức</span>
+                <input type="text" name="TenHT" />
+            </div>
+        </div>
+        <div class="them2">
+            <div class="them2a">
+                <span>Hình thức</span>
+                <input type="text" name="Hthuc"/>
+            </div>
+            <div class="them2a">
+                <span>Buổi</span>
+                <input type="text" name="Buoi"/>
+            </div>
+            <div class="them2a">
+                <span>Đơn giá</span>
+                <input type="text" name="Gia"/>
+            </div>
         </div>
 
-        <div class="them">
-            <span>Tên hình thức</span>
-            <input type="text" name="TenHT"/>
-        </div>
-
-        <div class="luubm">
-        <input type="submit" name="them" value="Thêm"/>
+        <div class="luubtn">
+            <input type="submit" name="luu" value="Lưu"/>
         </div>
     </div>
-
 </form>
-
-
 <?php
-include("footer.php")
+include("footer.php");
 ?>

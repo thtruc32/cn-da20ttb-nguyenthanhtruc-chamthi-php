@@ -1,6 +1,5 @@
 <?php
-include("header.php");
-
+include("headerad.php");
 include("ketnoi.php");
 
 $usern=$_REQUEST["user"]; //Nhận giá trị user từ link sửa của quantri.php
@@ -22,7 +21,7 @@ $row = mysqli_fetch_array($kq);
     <div class="thembm">
         <div class="them">
             <span>Mã lớp học</span>
-            <input type="text" readonly name="MaLop" value="<?php echo $row["MaLop"]; ?>"/>
+            <input type="text"  name="MaLop" value="<?php echo $row["MaLop"]; ?>"/>
         </div>
 
         <div class="them">

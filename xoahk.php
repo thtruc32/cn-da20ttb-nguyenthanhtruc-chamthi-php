@@ -2,14 +2,10 @@
 session_start();
 if (!isset($_SESSION["admin"])) {
     echo "<script language=javascript>
-    alert('Bạn không có quyền trên trang này!'); 
+    alert('Bạn không có quyền trên trang này!');
     window.location='dangnhap.php';
     </script>";
 }
-?>
-
-<?php
-include("header.php");
 ?>
 
 <?php include("ketnoi.php");
@@ -21,8 +17,4 @@ include("header.php");
     alert('Xóa học kỳ thành công');
     window.location='hocky.php';}
     </script> ");
-?>
-
-<?php
-include("footer.php");
 ?>

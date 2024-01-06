@@ -1,5 +1,5 @@
 <?php
-include("header.php");
+include("headerad.php")
 ?>
             <div class="h2text">
             <h2>
@@ -10,8 +10,10 @@ include("header.php");
             
                 <div class="btn">
                     <button>
+                    <a href="themct.php">
                         <ion-icon name="add-circle"></ion-icon>
                         Thêm môn chấm
+                    </a>
                     </button>
                     <button>
                         <ion-icon name="document-text"></ion-icon>
@@ -28,15 +30,14 @@ include("header.php");
                         <th><input type="checkbox"/></th>
                         <th>Mã chấm thi</th>
                         <th>Mã lớp</th>
-                        <th>Mã môn học</th>
-                        <th>Mã niên khóa</th>
-                        <th>Mã hình thức</th>
-                        <th>Mã học kỳ</th>
+                        <th>Môn học</th>
+                        <th>Hình thức</th>
+                        <th>Học kỳ</th>
+                        <th>Năm học</th>
                         <th>Ngày nhận</th>
                         <th>Ngày trả</th>
                         <th>Số lượng</th>
-                        <th>Đơn giá</th>
-                        <th>Tùy chọn</th>
+                        <th></th>
                     </tr>
                     <?php
                             include("ketnoi.php");
@@ -74,21 +75,18 @@ include("header.php");
                             echo "<td height='40px'><input type='checkbox'></td>";
                             echo "<td>" . $row["MaCT"] . "</td>";
                             $usern = $row["MaCT"];// Gán dữ liệu cột username vào biến $usern echo "<td> ".$row["password"]."</td>";
-                            echo "<td> " . $lop["TenLop"] . "</td>";/// khóa ngoại
+                            echo "<td> " . $lop["MaLop"] . "</td>";/// khóa ngoại
                             echo "<td> " . $monhoc["TenMH"] . "</td>";
+                             echo "<td> " . $hinhthuc["TenHT"] . "</td>";
+                                   echo "<td> " . $hocky["TenHK"] . "</td>";
                             echo "<td> " . $nienkhoa["TenNK"] . "</td>";
-                            echo "<td> " . $hinhthuc["TenHT"] . "</td>";
-                            echo "<td> " . $hocky["TenHK"] . "</td>";
-
-
-                            echo "<td>" . $row["Ngaynhan"] . "</td>";
-                            echo "<td>" . $row["Ngaytra"] . "</td>";
+                            echo "<td>" . date('d/m/Y', strtotime($row["Ngaynhan"])) . "</td>";
+                            echo "<td>" . date('d/m/Y', strtotime($row["Ngaytra"])) . "</td>";
                             echo "<td>" . $row["SLbai"] . "</td>";
-                            echo "<td>" . $row["Dongia"] . "</td>";
 
                             echo "<td>
-                            <a href='sua.php?user=$usern'><button><ion-icon name='pencil'></ion-icon></button></a>
-                            <a href='xoa.php?user=$usern'><button><ion-icon name='trash'></button></ion-icon></a>
+                            <a href='suact.php?user=$usern'><button><ion-icon name='pencil';></ion-icon></button></a>
+                            <a href='xoact.php?user=$usern'><button><ion-icon name='trash'></button></ion-icon></a>
                             </td>";
                             
                             echo "</tr>";

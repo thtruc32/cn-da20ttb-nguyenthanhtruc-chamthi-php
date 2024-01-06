@@ -8,9 +8,6 @@ if (!isset($_SESSION["admin"])) {
 }
 ?>
 
-<?php
-include("header.php");
-?>
 
 <?php include("ketnoi.php");
     $user_xoa=$_REQUEST["user"]; //Nhận giá trị user từ link xóa của quantri.php
@@ -21,8 +18,4 @@ include("header.php");
     alert('Xóa bộ môn thành công');
     window.location='bomon.php';}
     </script> ");
-?>
-
-<?php
-include("footer.php");
 ?>

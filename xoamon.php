@@ -8,10 +8,6 @@ if (!isset($_SESSION["admin"])) {
 }
 ?>
 
-<?php
-include("header.php");
-?>
-
 <?php include("ketnoi.php");
     $user_xoa=$_REQUEST["user"]; //Nhận giá trị user từ link xóa của quantri.php
     $sql="delete from monhoc where MaMH='".$user_xoa."'";
@@ -21,8 +17,4 @@ include("header.php");
     alert('Xóa môn học thành công');
     window.location='monhoc.php';}
     </script> ");
-?>
-
-<?php
-include("footer.php");
 ?>

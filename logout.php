@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 session_start();
 if (!isset($_SESSION["admin"])) {
     echo "<script language=javascript>
@@ -6,7 +6,7 @@ if (!isset($_SESSION["admin"])) {
     window.location='dangnhap.php';
     </script>";
 }
-?>
+?> -->
 <?php
     session_start();
     session_unset(); // Xóa tất cả các biến session
@@ -16,7 +16,7 @@ if (!isset($_SESSION["admin"])) {
 
     echo "<script language=javascript>
         alert('Bạn đã thoát ra khỏi hệ thống!');
-        window.location='dangnhap.php';
+        window.location='trangchund.php';
         </script> ";
     exit();
 ?>
