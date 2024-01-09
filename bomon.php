@@ -14,20 +14,11 @@ include("headerad.php")
                         <ion-icon name="add-circle"></ion-icon>
                         <span>Thêm bộ môn</span>
                     </a>
-                    </button>
-                    <button>
-                        <ion-icon name="document-text"></ion-icon>
-                        Xuất excel
-                    </button>
-                    <button>
-                        <ion-icon name="print"></ion-icon>
-                        In
-                    </button>
                 </div>
             <div class="quanly">
                 <table class="table">
                     <tr>
-                        <th><input type="checkbox"/></th>
+                        
                         <th>Mã bộ môn</th>
                         <th>Tên bộ môn</th>
                         <th>Tùy chọn</th>
@@ -42,7 +33,7 @@ include("headerad.php")
                             {
 
                                 echo "<tr>";
-                            echo "<td height='40px'><input type='checkbox'></td>";
+                
                             echo "<td>" . $row["MaBM"] . "</td>";
                             $usern = $row["MaBM"];// Gán dữ liệu cột username vào biến $usern
                             echo "<td>" . $row["TenBM"] . "</td>";

@@ -43,13 +43,14 @@ if (!isset($_SESSION["admin"])) {
         }
 
         .btn{
+            margin-right: 60px;
             display: flex;
-            margin-top: 8%;
+            margin-top: 3%;
             margin-left: 60px;
-            gap: 10px;
+            /* gap: 60%; */
             align-items: left;
+            justify-content: space-between;
         }
-
         .btn button a{
             color:#3593D8;
             text-decoration: none;
@@ -153,7 +154,7 @@ if (!isset($_SESSION["admin"])) {
                 </a>
 
                 <a href="phancongcham.php" class="tab_item">
-                    <ion-icon name="pencil"></ion-icon>
+                    <ion-icon name="grid"></ion-icon>
                     <span>Phân công chấm thi</span>
                 </a>
 
@@ -165,6 +166,11 @@ if (!isset($_SESSION["admin"])) {
                 <a href="nienkhoa.php" class="tab_item">
                     <ion-icon name="extension-puzzle"></ion-icon>
                     <span>Quản lý niên khóa</span>
+                </a>
+
+                <a href="thongke.php" class="tab_item">
+                    <ion-icon name="server"></ion-icon>
+                    <span>Quản lý thống kê</span>
                 </a>
             </div>
 
@@ -184,3 +190,4 @@ if (!isset($_SESSION["admin"])) {
             </div>
         </div>
         <div class="admin_layout_right">
+            <div>

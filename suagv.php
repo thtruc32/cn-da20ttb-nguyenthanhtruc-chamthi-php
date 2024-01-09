@@ -121,7 +121,7 @@ border-radius: 3px;
         <div class="them1">
             <div class="them1a">
                 <span>Mã giảng viên</span>
-                <input type="text" name="MaGV" value="<?php echo $row["MaGV"]; ?>"/>
+                <input type="text " readonly name="MaGV" value="<?php echo $row["MaGV"]; ?>"/>
             </div>
             <div class="them1a">
                 <span>Bộ môn</span>
@@ -164,7 +164,12 @@ border-radius: 3px;
     </div>
 </form>
     
-
+<style>
+            .admin_tab >:nth-child(2){
+                background-color: #3593D8;
+                color: white;
+            }
+            </style>
 
 
 <?php

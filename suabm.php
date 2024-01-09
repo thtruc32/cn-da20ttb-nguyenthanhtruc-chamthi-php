@@ -22,9 +22,9 @@ $row = mysqli_fetch_array($kq);
     <div class="thembm">
         <div class="them">
             <span>Mã bộ môn</span>
-            <input type="text" name="MaBM" value="<?php echo $row["MaBM"]; ?>"/>
-        </div>
-
+            <input type="text" readonly name="MaBM" value="<?php echo $row["MaBM"]; ?>"/>
+    
+ </div>
         <div class="them">
             <span>Tên bộ môn</span>
             <input type="text" name="TenBM" value="<?php echo $row["TenBM"]; ?>"/>
@@ -35,10 +35,12 @@ $row = mysqli_fetch_array($kq);
         </div>
     </div>
 </form>
-    
-
-
-
+<style>
+            .admin_tab > :nth-child(1){
+                background-color: #3593D8;
+                color: white;
+            }
+            </style>
 <?php
 include("footer.php")
 ?>

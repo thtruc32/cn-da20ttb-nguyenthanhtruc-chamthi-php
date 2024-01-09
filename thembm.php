@@ -12,10 +12,10 @@ include("headerad.php");
     </div>
 
     <div class="thembm">
-        <div class="them">
+        <!-- <div class="them">
             <span>Mã bộ môn</span>
             <input type="text" readonly name="MaBM"/>
-        </div>
+        </div> -->
 
         <div class="them">
             <span>Tên bộ môn</span>
@@ -28,7 +28,12 @@ include("headerad.php");
     </div>
 </form>
     
-
+<style>
+            .admin_tab >:nth-child(1){
+                background-color: #3593D8;
+                color: white;
+            }
+            </style>
 
 
 <?php

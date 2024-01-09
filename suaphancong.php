@@ -5,7 +5,7 @@ include("ketnoi.php");
 
 $usern=$_REQUEST["user"]; //Nhận giá trị user từ link sửa của quantri.php
 
-$sql = "SELECT ct.MaCT, gv.TenGV, ht.TenHT, ht.Buoi, ht.Gia, ct.SLbai, pc.Trangthai
+$sql = "SELECT ct.MaCT, gv.MaGV, gv.TenGV, ht.TenHT, ht.Buoi, ht.Gia, ct.SLbai, pc.Trangthai
 FROM chamthi ct
 LEFT JOIN phancong pc ON ct.MaCT = pc.MaCT
 LEFT JOIN hinhthuc ht ON ct.MaHT = ht.MaHT
@@ -121,17 +121,19 @@ $row = mysqli_fetch_array($kq);
             </div>
             <div class="them1a">
                 <span>Tên giảng viên</span>
-                <select name="giangvien"  value="<?php echo $row["giangvien"]; ?>">
-                    <?php
-                $sql6 = "SELECT MaGV, TenGV FROM giangvien";
-                $kq6 = mysqli_query($conn, $sql6) or die("Không thể thêm giảng viên: " . mysqli_error($conn));
-                while ($row6 = mysqli_fetch_assoc($kq6)) {
-                    $MaGV = $row6['MaGV'];
-                    $TenGV = $row6['TenGV'];
-                    echo "<option value=\"$MaGV\">$TenGV</option>";
-                    }
-                ?>
-                </select>
+                <select name="MaGV">
+                        <?php
+                            $sql = "SELECT * FROM giangvien"; // Retrieve all records from the 'giangvien' table
+                            $kq = mysqli_query($conn, $sql) or die("Không thể thêm giảng viên: " . mysqli_error($conn));
+                            
+                            while ($gv_row = mysqli_fetch_assoc($kq)) {
+                                $MaGV = $gv_row['MaGV'];
+                                $TenGV = $gv_row['TenGV'];
+                                $selected = ($MaGV == $row["MaGV"]) ? "selected" : "";
+                                echo "<option value=\"$MaGV\"$selected>$TenGV</option>";
+                            }
+                            ?>
+                    </select>
             </div>
             <div class="them1a">
                 <span>Tên hình thức</span>

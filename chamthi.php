@@ -1,106 +1,109 @@
 <?php
-include("headerad.php")
+include("headerad.php");
+
+if (isset($_GET['search']) && !empty($_GET['search'])) {
+    $keyword = $_GET['search'];
+    // Xóa tham số search khỏi URL khi tìm kiếm
+    echo "<script>
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.delete('search');
+            window.history.replaceState({}, document.title, window.location.pathname + '?' + urlParams.toString());
+          </script>";
+}
+
 ?>
-            <div class="h2text">
-            <h2>
-                <ion-icon name="pencil"></ion-icon>
-                QUẢN LÝ CHẤM THI
-            </h2>
-            </div>
-            
-                <div class="btn">
-                    <button>
-                    <a href="themct.php">
-                        <ion-icon name="add-circle"></ion-icon>
-                        Thêm môn chấm
-                    </a>
-                    </button>
-                    <button>
-                        <ion-icon name="document-text"></ion-icon>
-                        Xuất excel
-                    </button>
-                    <button>
-                        <ion-icon name="print"></ion-icon>
-                        In
-                    </button>
-                </div>
-            <div class="quanly">
-                <table class="table">
-                    <tr>
-                        <th><input type="checkbox"/></th>
-                        <th>Mã chấm thi</th>
-                        <th>Mã lớp</th>
-                        <th>Môn học</th>
-                        <th>Hình thức</th>
-                        <th>Học kỳ</th>
-                        <th>Năm học</th>
-                        <th>Ngày nhận</th>
-                        <th>Ngày trả</th>
-                        <th>Số lượng</th>
-                        <th></th>
-                    </tr>
-                    <?php
-                            include("ketnoi.php");
-                            $sql="select * from chamthi ";
-                            $kq=mysqli_query($conn,$sql) or die ("Không thể xuất thông tin ".mysqli_error());
-                            while($row=mysqli_fetch_array($kq))
-                            {
+<div class="h2text">
+    <h2>
+        <ion-icon name="pencil"></ion-icon>
+        QUẢN LÝ CHẤM THI
+    </h2>
+</div>
 
-                                $lops = $row["MaLop"];//////////nếu không có khóa ngoại thì ko cần dùng đến
-                                $sql2 = "SELECT * FROM lop WHERE MaLop='" . $lops . "'";
-                                $kq2 = mysqli_query($conn, $sql2) or die("Không thể xuất thông tin" . mysqli_error());
-                                $lop = mysqli_fetch_array($kq2);
+<div class="btn">
+    <button>
+        <a href="themct.php">
+            <ion-icon name="add-circle"></ion-icon>
+            Thêm môn chấm
+        </a>
+    </button>
+    <div class="timkiem">
+        <form method="GET" action="">
+            <input type="text" name="search" style="width: 200px; height: 30px; text-align:center; border: 1px solid #3593D8; border-radius: 3px;" placeholder="Nhập tìm kiếm tại đây!" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+            <input type="submit" style="width: 80px; height: 30px; background-color: #3593D8; color: white; border: none; border-radius: 3px;" value="Tìm kiếm">
+        </form>
+    </div>
 
-                                $monhocs = $row["MaMH"];//////////nếu không có khóa ngoại thì ko cần dùng đến
-                                $sql3 = "SELECT * FROM monhoc WHERE MaMH='" . $monhocs . "'";
-                                $kq3 = mysqli_query($conn, $sql3) or die("Không thể xuất thông tin " . mysqli_error());
-                                $monhoc = mysqli_fetch_array($kq3);
+</div>
+<div class="quanly">
 
-                                $nienkhoas = $row["MaNK"];//////////nếu không có khóa ngoại thì ko cần dùng đến
-                                $sql4 = "SELECT * FROM nienkhoa WHERE MaNK='" . $nienkhoas . "'";
-                                $kq4 = mysqli_query($conn, $sql4) or die("Không thể xuất thông tin người dùng " . mysqli_error());
-                                $nienkhoa = mysqli_fetch_array($kq4);
+    <table class="table">
+        <!-- Bảng chấm thi -->
+        <tr>
+            <th width="5%">STT</th>
+            <th width="10%">Mã lớp</th>
+            <th width="18%">Môn học</th>
+            <th width="15%">Hình thức</th>
+            <th width="10%">Học kỳ</th>
+            <th width="10%">Năm học</th>
+            <th width="10%">Ngày nhận</th>
+            <th width="10%">Ngày trả</th>
+            <th width="5%">Số lượng</th>
+            <th width="7%"></th>
+        </tr>
+        <?php
+        include("ketnoi.php");
 
-                                $hinhthucs = $row["MaHT"];//////////nếu không có khóa ngoại thì ko cần dùng đến
-                                $sql5 = "SELECT * FROM hinhthuc WHERE MaHT='" . $hinhthucs . "'";
-                                $kq5 = mysqli_query($conn, $sql5) or die("Không thể xuất thông tin người dùng " . mysqli_error());
-                                $hinhthuc = mysqli_fetch_array($kq5);
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $keyword = $_GET['search'];
+            $sql = "SELECT ct.MaCT, ct.MaLop, ct.MaMH, mh.TenMH, ct.Ngaynhan, ct.Ngaytra, ct.SLbai, ht.Hthuc, hk.TenHK, nk.TenNK
+                    FROM chamthi ct
+                    JOIN hinhthuc ht ON ct.MaHT = ht.MaHT
+                    JOIN hocky hk ON ct.MaHK = hk.MaHK
+                    JOIN nienkhoa nk ON ct.MaNK = nk.MaNK
+                    JOIN monhoc mh ON ct.MaMH = mh.MaMH
+                    WHERE ct.MaCT LIKE '%$keyword%' OR ct.MaLop LIKE '%$keyword%' OR ct.MaMH LIKE '%$keyword%' OR mh.TenMH LIKE '%$keyword%' OR ct.Ngaynhan LIKE '%$keyword%' OR ct.Ngaytra LIKE '%$keyword%' OR ct.SLbai LIKE '%$keyword%' OR ht.Hthuc LIKE '%$keyword%' OR hk.TenHK LIKE '%$keyword%' OR nk.TenNK LIKE '%$keyword%'
+                    ORDER BY ct.Ngaynhan DESC";
+        } else {
+            $sql = "SELECT ct.MaCT, ct.MaLop, ct.MaMH, mh.TenMH, ct.Ngaynhan, ct.Ngaytra, ct.SLbai, ht.Hthuc, hk.TenHK, nk.TenNK
+                    FROM chamthi ct
+                    JOIN hinhthuc ht ON ct.MaHT = ht.MaHT
+                    JOIN hocky hk ON ct.MaHK = hk.MaHK
+                    JOIN nienkhoa nk ON ct.MaNK = nk.MaNK
+                    JOIN monhoc mh ON ct.MaMH = mh.MaMH
+                    ORDER BY ct.Ngaynhan DESC";
+        }
 
-                                $hockys = $row["MaHK"];//////////nếu không có khóa ngoại thì ko cần dùng đến
-                                $sql6 = "SELECT * FROM hocky WHERE MaHK='" . $hockys . "'";
-                                $kq6 = mysqli_query($conn, $sql6) or die("Không thể xuất thông tin người dùng " . mysqli_error());
-                                $hocky = mysqli_fetch_array($kq6);
+        $kq = mysqli_query($conn, $sql) or die("Không thể xuất thông tin " . mysqli_error());
+        $stt = 1;
+        while ($row = mysqli_fetch_array($kq)) {
 
-                                echo "<tr>";
-                            echo "<td height='40px'><input type='checkbox'></td>";
-                            echo "<td>" . $row["MaCT"] . "</td>";
-                            $usern = $row["MaCT"];// Gán dữ liệu cột username vào biến $usern echo "<td> ".$row["password"]."</td>";
-                            echo "<td> " . $lop["MaLop"] . "</td>";/// khóa ngoại
-                            echo "<td> " . $monhoc["TenMH"] . "</td>";
-                             echo "<td> " . $hinhthuc["TenHT"] . "</td>";
-                                   echo "<td> " . $hocky["TenHK"] . "</td>";
-                            echo "<td> " . $nienkhoa["TenNK"] . "</td>";
-                            echo "<td>" . date('d/m/Y', strtotime($row["Ngaynhan"])) . "</td>";
-                            echo "<td>" . date('d/m/Y', strtotime($row["Ngaytra"])) . "</td>";
-                            echo "<td>" . $row["SLbai"] . "</td>";
+            echo "<tr>";
+            echo "<td>" . $stt++ . "</td>";
+            echo "<td> " . $row["MaLop"] . "</td>";/// khóa ngoại
+            echo "<td> " . $row["TenMH"] . "</td>";
+            echo "<td> " . $row["Hthuc"] . "</td>";
+            echo "<td> " . $row["TenHK"] . "</td>";
+            echo "<td> " . $row["TenNK"] . "</td>";
+            echo "<td>" . date('d/m/Y', strtotime($row["Ngaynhan"])) . "</td>";
+            echo "<td>" . date('d/m/Y', strtotime($row["Ngaytra"])) . "</td>";
+            echo "<td>" . $row["SLbai"] . "</td>";
 
-                            echo "<td>
-                            <a href='suact.php?user=$usern'><button><ion-icon name='pencil';></ion-icon></button></a>
-                            <a href='xoact.php?user=$usern'><button><ion-icon name='trash'></button></ion-icon></a>
-                            </td>";
+            echo "<td>
+                    <a href='suact.php?user=" . $row["MaCT"] . "'><button><ion-icon name='pencil'></ion-icon></button></a>
+                    <a href='xoact.php?user=" . $row["MaCT"] . "'><button><ion-icon name='trash'></ion-icon></button></a>
+                  </td>";
                             
-                            echo "</tr>";
-                        }
-                    ?>
-                </table>
-            </div>
-            <style>
-            .admin_tab :nth-child(6){
-                background-color: #3593D8;
-                color: white;
-            }
-            </style>
-            <?php
-            
+            echo "</tr>";
+        }
+        ?>
+    </table>
+</div>
+<style>
+.admin_tab :nth-child(6) {
+    background-color: #3593D8;
+    color: white;
+}
+</style>
+<?php
 include("footer.php");
 ?>

@@ -15,19 +15,11 @@ include("headerad.php");
                         Thêm hình thức
                         </a>
                     </button>
-                    <button>
-                        <ion-icon name="document-text"></ion-icon>
-                        Xuất excel
-                    </button>
-                    <button>
-                        <ion-icon name="print"></ion-icon>
-                        In
-                    </button>
+            
                 </div>
             <div class="quanly">
                 <table class="table">
                     <tr>
-                        <th><input type="checkbox"/></th>
                         <th>Mã hình thức</th>
                         <th>Tên hình thức</th>
                         <th>Hình thức</th>
@@ -44,22 +36,18 @@ include("headerad.php");
                         {
 
                             echo "<tr>";
-                        echo "<td height='40px'><input type='checkbox'></td>";
+                      
                         echo "<td>" . $row["MaHT"] . "</td>";
                         $usern = $row["MaHT"];// Gán dữ liệu cột username vào biến $usern
                         echo "<td>" . $row["TenHT"] . "</td>";
                         echo "<td>" . $row["Hthuc"] . "</td>";
                         echo "<td>" . $row["Buoi"] . "</td>";
                         echo "<td>" . $row["Gia"] . "</td>";
+                
                         echo "<td>
-                        <button>
-                            <a href='suaht.php?user=$usern'>
-                                <ion-icon name='pencil'></ion-icon>
-                            </a>
-                        </button>
-
-                        <a href='xoaht.php?user=$usern'><button><ion-icon name='trash'></button></ion-icon></a>
-                        </td>";
+                        <a href='suaht.php?user=" . $row["MaHT"] . "'><button><ion-icon name='pencil'></ion-icon></button></a>
+                        <a href='xoaht.php?user=" . $row["MaHT"] . "'><button><ion-icon name='trash'></ion-icon></button></a>
+                      </td>";
 
                         echo "</tr>";
                         

@@ -112,7 +112,14 @@ border-radius: 3px;
         <div class="them2">
             <div class="them2a">
                 <span>Hình thức</span>
-                <input type="text" name="Hthuc"/>
+                <select name="Hthuc">
+                        <option value="Tự luận">Tự luận</option>
+                        <option value="Trắc nghiệm">Trắc nghiệm</option>
+                        <option value="Kết thúc học phần sau đại học">Kết thúc học phần sau đại học</option>
+                        <option value="Chấm phản biện">Chấm phản biện</option>
+                        <option value="Chấm vấn đáp, thực hành">Chấm vấn đáp, thực hành</option>
+
+                    </select>
             </div>
             <div class="them2a">
                 <span>Buổi</span>
@@ -129,6 +136,13 @@ border-radius: 3px;
         </div>
     </div>
 </form>
+
+<style>
+            .admin_tab > :nth-child(5){
+                background-color: #3593D8;
+                color: white;
+            }
+            </style>
 <?php
 include("footer.php");
 ?>

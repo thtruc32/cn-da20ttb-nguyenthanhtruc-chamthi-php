@@ -9,7 +9,7 @@ $sql = "SELECT * FROM chamthi WHERE MaCT = '".$usern."'";
 $kq = mysqli_query($conn, $sql) or die("Không thể sửa thông tin chấm thi " . mysqli_error());
 $row = mysqli_fetch_array($kq);
 ?>
-?>
+
 
 <style>
 .text {
@@ -112,11 +112,11 @@ $row = mysqli_fetch_array($kq);
         <div class="them1">
             <div class="them1a">
                 <span>Mã chấm thi</span>
-                <input type="text" name="MaCT" value="<?php echo $row["MaCT"]; ?>"/>
+                <input type="text" name="MaCT" value="<?php echo $row["MaCT"]; ?>">
             </div>
             <div class="them1a">
                 <span>Tên lớp</span>
-                <select name="lop" value="<?php echo $row["lop"]; ?>">
+                <select name="MaLop" value="<?php echo $row["lop"]; ?>">
                     <?php
                 $sql6 = "SELECT MaLop, TenLop FROM lop";
                 $kq6 = mysqli_query($conn, $sql6) or die("Không thể thêm lớp: " . mysqli_error($conn));
@@ -130,7 +130,7 @@ $row = mysqli_fetch_array($kq);
             </div>
             <div class="them1a">
                 <span>Niên khóa</span>
-                <select name="nienkhoa" value="<?php echo $row["nienkhoa"]; ?>">
+                <select name="MaNK" value="<?php echo $row["nienkhoa"]; ?>">
                     <?php
                 $sql2 = "SELECT MaNK, TenNK FROM nienkhoa";
                 $kq2 = mysqli_query($conn, $sql2) or die("Không thể thêm niên khóa: " . mysqli_error($conn));
@@ -147,7 +147,7 @@ $row = mysqli_fetch_array($kq);
         <div class="them2">
             <div class="them2a">
                 <span>Tên môn</span>
-                <select name="monhoc" value="<?php echo $row["monhoc"]; ?>">
+                <select name="MaMH" value="<?php echo $row["monhoc"]; ?>">
                     <?php
                 $sql3 = "SELECT MaMH, TenMH FROM monhoc";
                 $kq3 = mysqli_query($conn, $sql3) or die("Không thể thêm môn học: " . mysqli_error($conn));
@@ -161,7 +161,7 @@ $row = mysqli_fetch_array($kq);
             </div>
             <div class="them2a">
                 <span>Hình thức</span>
-                <select name="hinhthuc" value="<?php echo $row["hinhthuc"]; ?>">
+                <select name="MaHT" value="<?php echo $row["hinhthuc"]; ?>">
                     <?php
                 $sql4 = "SELECT MaHT, TenHT FROM hinhthuc";
                 $kq4 = mysqli_query($conn, $sql4) or die("Không thể thêm hình thức: " . mysqli_error($conn));
@@ -175,7 +175,7 @@ $row = mysqli_fetch_array($kq);
             </div>
             <div class="them2a">
                 <span>Học kỳ</span>
-                <select name="hocky" value="<?php echo $row["hocky"]; ?>">
+                <select name="MaHK" value="<?php echo $row["hocky"]; ?>">
                     <?php
                 $sql5 = "SELECT MaHK, TenHK FROM hocky";
                 $kq5 = mysqli_query($conn, $sql5) or die("Không thể thêm học kỳ: " . mysqli_error($conn));

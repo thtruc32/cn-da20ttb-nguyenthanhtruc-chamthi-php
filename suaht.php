@@ -116,7 +116,13 @@ border-radius: 3px;
         <div class="them2">
             <div class="them2a">
                 <span>Hình thức</span>
-                <input type="text" name="Hthuc" value="<?php echo $row["Hthuc"]; ?>"/>
+                <select name="Hthuc" style="height: 30px; border: 1px solid #3593D8; border-radius: 3px;">
+                    <option value="Tự luận" <?php echo ($row["Hthuc"] == "Tự luận") ? "selected" : ""; ?>>Tự luận</option>
+                    <option value="Trắc nghiệm" <?php echo ($row["Hthuc"] == "Trắc nghiệm") ? "selected" : ""; ?>>Trắc nghiệm</option>
+                    <option value="Kết thúc học phần sau đại học" <?php echo ($row["Hthuc"] == "Kết thúc học phần sau đại học") ? "selected" : ""; ?>>Kết thúc học phần sau đại học</option>
+                    <option value="Chấm phản biện" <?php echo ($row["Hthuc"] == "Chấm phản biện") ? "selected" : ""; ?>>Chấm phản biện</option>
+                    <option value="Chấm vấn đáp, thực hành" <?php echo ($row["Hthuc"] == "Chấm vấn đáp, thực hành") ? "selected" : ""; ?>>Chấm vấn đáp, thực hành</option>
+                </select>
             </div>
             <div class="them2a">
                 <span>Buổi</span>
@@ -135,7 +141,12 @@ border-radius: 3px;
 </form>
     
 
-
+<style>
+            .admin_tab >:nth-child(5){
+                background-color: #3593D8;
+                color: white;
+            }
+            </style>
 
 <?php
 include("footer.php")

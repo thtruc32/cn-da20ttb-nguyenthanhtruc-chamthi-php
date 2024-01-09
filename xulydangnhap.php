@@ -24,7 +24,7 @@
         $_SESSION["giangvien"] = $user;
         echo ("<script language=javascript>
                 // alert('Đăng nhập thành công');
-                window.location='trangchugv.php';
+                window.location='dangkichamthi.php';
                 </script> ");
     } else {
         $sql2 = "select * from admin where emailad='" .$user. "' and matkhauad ='" .$pass. "'";

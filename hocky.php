@@ -15,19 +15,12 @@ include("headerad.php");
                             Thêm học kỳ
                         </a>
                     </button>
-                    <button>
-                        <ion-icon name="document-text"></ion-icon>
-                        Xuất excel
-                    </button>
-                    <button>
-                        <ion-icon name="print"></ion-icon>
-                        In
-                    </button>
+                  
                 </div>
             <div class="quanly">
                 <table class="table">
                     <tr>
-                        <th><input type="checkbox"/></th>
+                       
                         <th>Mã học kỳ</th>
                         <th>Tên học kỳ</th>
                         <th>Tùy chọn</th>
@@ -41,7 +34,7 @@ include("headerad.php");
                         {
 
                             echo "<tr>";
-                        echo "<td height='40px'><input type='checkbox'></td>";
+                    
                         echo "<td>" . $row["MaHK"] . "</td>";
                         $usern = $row["MaHK"];// Gán dữ liệu cột username vào biến $usern
                         echo "<td>" . $row["TenHK"] . "</td>";
@@ -57,7 +50,7 @@ include("headerad.php");
                 </table>
             </div>
             <style>
-            .admin_tab :nth-child(7){
+            .admin_tab :nth-child(8){
                 background-color: #3593D8;
                 color: white;
             }

@@ -47,8 +47,13 @@ $row = mysqli_fetch_array($kq);
     </div>
 </form>
     
-
-
+<style>
+.admin_tab >:nth-child(9){
+                background-color: #3593D8;
+                color: white;
+            }
+            </style>
+</style>
 
 <?php
 include("footer.php")

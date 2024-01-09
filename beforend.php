@@ -33,7 +33,7 @@
             <img src="./hinh/biaset.png"/>
         </div>
         <div class="frame2">
-            <a href="">
+            <a href="trangchund.php">
                 <span>TRANG CHỦ</span>
             </a>
             <a href="https://ktcn.tvu.edu.vn/gioi-thieu/gioi-thieu-khoa/1.html">

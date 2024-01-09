@@ -62,7 +62,7 @@
             <a href="">
                 <span>HOẠT ĐỘNG TVU</span>
             </a>
-            <a href="lichchamthi.php">
+            <a href="lichchamthind.php">
                 <span>LỊCH CHẤM THI</span>
             </a>
         </div>
@@ -150,3 +150,11 @@ function showDivs(n) {
 </script>
 </body>
 </html>
+<style>
+    .frame2 > :nth-child(1){
+                background-color: white;
+                color: #3593D8;
+                height: 50px;
+                font-weight: 600;
+            }
+            </style>

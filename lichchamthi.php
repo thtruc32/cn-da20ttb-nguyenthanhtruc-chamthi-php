@@ -20,14 +20,16 @@ th, td{
 <table style="width:97%">
   <tr>
     <th width="4%">STT</th>
-    <th width="7%">Mã lớp</th>
+    <th width="6%">Mã lớp</th>
     <th width="18%">Môn học</th>
     <th width="8%">Hình thức</th>
-    <th width="8%">Học kỳ</th>
-    <th width="8%">Năm học</th>
+    <th width="7%">Học kỳ</th>
+    <th width="10%">Năm học</th>
     <th width="7%">Ngày nhận</th>
     <th width="7%">Ngày trả</th>
     <th width="5%">Số lượng</th>
+    <th>Đơn giá</th>
+    <th>Tổng tiền</th>
     <th width="11%">Giảng viên </th>
     <th width="8%">Trạng thái</th>
     <!-- <th width="6%"></th> -->
@@ -63,6 +65,9 @@ th, td{
                             echo "<td>" . date('d/m/Y', strtotime($row["Ngaynhan"])) . "</td>";
                             echo "<td>" . date('d/m/Y', strtotime($row["Ngaytra"])) . "</td>";
                             echo "<td>" . $row["SLbai"] . "</td>";
+                            echo "<td>" . $row["Gia"] . "</td>";
+                            $tongtien = $row["Gia"] * $row["SLbai"];
+                            echo "<td>" . $tongtien . "</td>";
                             echo "<td>" . $row["TenGV"] . "</td>";
                             echo "<td>" . $row["Trangthai"] . "</td>";
                                 echo "</tr>";
@@ -71,7 +76,7 @@ th, td{
     </table>
 </div>
 <style>
-    .frame2a :nth-child(1){
+    .frame2a > :nth-child(1){
                 background-color: white;
                 color: #3593D8;
                 height: 50px;

@@ -15,19 +15,13 @@ include("headerad.php");
                             Thêm niên khóa
                         </a>
                     </button>
-                    <button>
-                        <ion-icon name="document-text"></ion-icon>
-                        Xuất excel
-                    </button>
-                    <button>
-                        <ion-icon name="print"></ion-icon>
-                        In
-                    </button>
+            
+                  
                 </div>
             <div class="quanly">
                 <table class="table">
                     <tr>
-                        <th><input type="checkbox"/></th>
+                
                         <th>Mã niên khóa</th>
                         <th>Tên niên khóa</th>
                         <th>Thời gian bắt đầu</th>
@@ -42,7 +36,7 @@ include("headerad.php");
                             while($row=mysqli_fetch_array($kq))
                             {
                                 echo "<tr>";
-                                echo "<td height='40px'><input type='checkbox'></td>";
+                              
                                 echo "<td>" . $row["MaNK"] . "</td>";
                                 $usern = $row["MaNK"];// Gán dữ liệu cột username vào biến $usern
                                 echo "<td>" . $row["TenNK"] . "</td>";
@@ -61,7 +55,7 @@ include("headerad.php");
                 </table>
             </div>
             <style>
-            .admin_tab :nth-child(8){
+            .admin_tab :nth-child(9){
                 background-color: #3593D8;
                 color: white;
             }
