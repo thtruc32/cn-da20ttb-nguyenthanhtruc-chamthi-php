@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+
+.frame{
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+
+}
+.frame1{
+    padding-left: 20px;
+    gap: 30px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    background-color:  #3593D8;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.frame2{
+    padding-left: 150px;
+    gap: 20px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    background-color:#6DB9EF;
+    /* justify-content: flex-start; */
+    align-items: center;
+}
+
+.frame2a{
+    gap: 25px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.frame2a a:hover {
+    background-color: white;
+    color: #3593D8;
+    height: 50px;
+    font-weight: 500;
+}
+
+
+.frame2b{
+    gap: 25px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.frame1>a:hover{
+    background-color: white;
+    color: #3593D8;
+    height: 50px;
+    font-weight: 500;
+}
+
+.frame3{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    background-color:#EEEDED;
+    justify-content: center;
+    align-items: center;
+}
+
+.frame4{
+    padding: 20px 0;
+    width: 100%;
+    height: auto;
+}
+
+.frame4 > span{
+    color: #3593D8;
+    font-size: 30px;
+    padding: 10px 0;
+    display: flex;
+    font-weight: 600;
+    justify-content: center;
+}
+
+.frame4 > label{
+    padding-top: 5px;
+    font-size: 18px;
+    display: flex;
+    font-weight: 500;
+    justify-content: center;
+}
+
+.frame4 > p{
+    padding-top: 10px;
+    display: flex;
+    text-align: justify;
+    line-height: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.frame4 > a{
+    display: flex;
+    text-decoration: none;
+    padding-right: 40px;
+    color: #3593D8;
+    justify-content: flex-end;
+    font-weight: 600;
+}
+
+.frame4>a:hover{
+    font-style: italic;
+}
+
+.frame1 a{
+    gap: 5px;
+    align-items: center;
+    display: flex;
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.frame2 a{
+    letter-spacing: 1px;
+    gap: 5px;
+    align-items: center;
+    display: flex;
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.frame5{
+    display: flex;
+    width: 100%;
+    height: auto;
+    /* background-color: antiquewhite; */
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.frame5 > h3{
+    color: #3593D8;
+    font-size: 30px;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frame6{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+.frame6>h4{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: #3593D8;
+}
+
+.fr6img{
+    display: flex;
+    height: auto;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.fr6img > img{
+    display: flex;
+    height: 100px;
+    width: 200px;
+}
+
+.new{
+    display: flex;
+    height: auto;
+    width: 80%;
+    border: 1px solid #3593D8;
+}
+
+.new1{
+    line-height: 30px;
+    display: flex;
+    height: auto;
+    gap: 10px;
+    border-right: 1px solid #3593D8;
+    border-left: 1px solid #3593D8;
+}
+
+.new1 > img{
+    display: flex;
+    height: 200px;
+    width: 300px;
+}
+
+.newtxt{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    line-height: 30px;
+    padding: 5px 10px;
+    justify-content: center;
+}
+
+.newtxt>span>a{
+    width: 100px;
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px 5px;
+    color: #3593D8;
+    font-weight: 500;
+}
+.newtxt>span>a:hover{
+    font-style: italic;
+}
+.newtxt>span{
+    display: flex;
+    width: auto;
+    justify-content: flex-end;
+}
+
+.newtxt > p>a{
+    text-decoration: none;
+    font-weight: 700;
+    color: #3593D8;
+}
+
+.newtxt > p>a:hover{
+    text-decoration: none;
+    font-weight: 700;
+    color: #3593D8;
+    font-style: italic;
+}
+
+.biaset{
+    width: 100%;
+    height: 180px;
+}
+
+.biaset img{
+    display: block;
+    width: 100%;
+    height: 180px;
+}
+
+.mySlides {
+    display:none;
+}
+
+.dn{
+    width: 53%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.dn>a:hover{
+    color:black;
+}
+
+.clickleft, .clickright{
+        display: flex;
+        height: 40px;
+        width: 30px;
+        align-items: center;
+        justify-content: center;
+        border: none;
+}
+
+.chantrangg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color:#6DB9EF;
+    color: white;
+    padding: 10px;
+    /* position: absolute;
+    bottom: 0; */
+}
+
+.namegv{
+    color: white;
+    font-weight: 500;
+    gap: 10px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
